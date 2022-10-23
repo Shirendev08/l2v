@@ -3,6 +3,7 @@ import React from 'react'
 import styled from "styled-components"
 import {Splide, SplideSlide} from "@splidejs/react-splide"
 import '@splidejs/react-splide/css';
+import { Link } from "react-router-dom"
 
 function Veggie() {
 
@@ -38,7 +39,7 @@ function Veggie() {
                         <h3>Our Vegetarian Picks</h3>
                         <Splide options={{
                             perPage:3,
-                            arrows: false,
+                            arrows: false, 
                             pagination: false,
                             drag: 'free',
                             gap:'5rem'
@@ -47,9 +48,11 @@ function Veggie() {
                             return (
                                 <SplideSlide key={recipe.id}>
                                 <Card>
+                                    <Link to={'/recipe/'+recipe.id}>
                                     <p>{recipe.title }</p>
                                     <img src={recipe.image} alt={recipe.title} />
                                     <Gradient/>
+                                    </Link>
                                 </Card>
                                 </SplideSlide>
                             )
